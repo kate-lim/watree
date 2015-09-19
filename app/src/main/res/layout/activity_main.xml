@@ -8,20 +8,9 @@
     <TextView android:text="WATREE" android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textview"
-        android:textSize="35dp"
+        android:textSize="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Donate"
-        android:id="@+id/donate_btn"
-        android:onClick="onDonateBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/camera_button"
-        android:layout_alignStart="@+id/camera_button"
-        android:layout_marginBottom="37dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,9 +31,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Camera"
+        android:text="Cameraa"
         android:id="@+id/camera_button"
-        android:layout_below="@+id/captured_image"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
