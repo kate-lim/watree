@@ -2,6 +2,8 @@
     <string name="app_name">watree</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+    <string name="facebook_app_id">785184824943474</string>
+    <string name="subject">test</string>
+    <string name="share_body">test</string>
 
 </resources>
