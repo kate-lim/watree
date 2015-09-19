@@ -1,9 +1,7 @@
 package com.jbk.watree;
 
 import android.content.Intent;
-
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.location.Location;
