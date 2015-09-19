@@ -3,19 +3,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jbk.watree"
     android:versionCode="1"
-<<<<<<< HEAD
     android:versionName="1.0">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
     <uses-sdk android:minSdkVersion="4" />
-=======
-    android:versionName="1.0" >
 
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" />
->>>>>>> dabcfd878f7fe5a2f56420777916849a2e864b8c
 
     <application
         android:allowBackup="true"
@@ -31,10 +25,4 @@
             </intent-filter>
         </activity>
     </application>
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> dabcfd878f7fe5a2f56420777916849a2e864b8c
 </manifest>
