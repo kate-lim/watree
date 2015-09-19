@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.1"
     defaultConfig {
         applicationId "com.jbk.watree"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
@@ -20,9 +20,16 @@ android {
     }
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.braintreepayments.api:braintree:1.+'
     compile 'com.loopj.android:android-async-http:1.4.8'
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
 }
+
+

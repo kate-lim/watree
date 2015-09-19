@@ -16,6 +16,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.share.model.SharePhoto;
+import com.facebook.share.model.SharePhotoContent;
+import com.facebook.share.widget.ShareButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,16 +33,23 @@ public class MainActivity extends AppCompatActivity {
     ImageView capturedImage;
 
     protected PointF locationPoint;
+    Bitmap bp;
+    ShareButton shareButton;
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
+
+        shareButton = (ShareButton)findViewById (R.id.fb_share_button);
 
         cameraButton = (Button)findViewById(R.id.camera_button);
         capturedImage = (ImageView)findViewById(R.id.captured_image);
@@ -67,6 +79,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+//    public void sharePhotoFB(View v){
+//
+//        shareButton.setShareContent(content);
+//    }
 
     private class MyLocationListener implements LocationListener {
 
@@ -100,8 +117,17 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Bitmap bp = (Bitmap) data.getExtras().get("data");
+        bp = (Bitmap) data.getExtras().get("data");
         capturedImage.setImageBitmap(bp);
+
+        SharePhoto photo = new SharePhoto.Builder()
+                .setBitmap(bp)
+                .build();
+        SharePhotoContent content = new SharePhotoContent.Builder()
+                .addPhoto(photo)
+                .build();
+
+        shareButton.setShareContent(content);
     }
 
     @Override
@@ -140,5 +166,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Logs 'install' and 'app activate' App Events.
+        AppEventsLogger.activateApp(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Logs 'app deactivate' App Event.
+        AppEventsLogger.deactivateApp(this);
     }
 }

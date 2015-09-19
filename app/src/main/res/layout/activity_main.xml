@@ -47,4 +47,12 @@
         android:layout_below="@+id/captured_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="86dp" />
+
+    <com.facebook.share.widget.ShareButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:id="@+id/fb_share_button"
+        android:layout_below="@+id/camera_button"
+        android:layout_centerHorizontal="true"/>
 </RelativeLayout>
