@@ -50,12 +50,5 @@
         android:layout_above="@+id/camera_button"
         android:layout_centerHorizontal="true"/>
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/newImage"
-
-        android:layout_centerHorizontal="true"
-        android:layout_above="@+id/camera_button" />
 
 </RelativeLayout>
