@@ -33,12 +33,11 @@
         android:layout_height="wrap_content"
         android:text="Cameraa"
         android:id="@+id/camera_button"
-<<<<<<< HEAD
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-=======
+
         android:layout_below="@+id/captured_image"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="86dp" />
@@ -48,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="Share"
         android:id="@+id/fb_share_button"
-        android:layout_below="@+id/camera_button"
+        android:layout_above="@+id/camera_button"
         android:layout_centerHorizontal="true"/>
->>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
+
 </RelativeLayout>

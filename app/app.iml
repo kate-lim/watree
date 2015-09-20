@@ -98,15 +98,10 @@
     <orderEntry type="library" exported="" name="card-form-2.0.1" level="project" />
     <orderEntry type="library" exported="" name="braintree-1.6.5" level="project" />
     <orderEntry type="library" exported="" name="braintree-api-1.6.5" level="project" />
-<<<<<<< HEAD
-    <orderEntry type="library" exported="" name="android-async-http-1.4.8" level="project" />
-    <orderEntry type="library" exported="" name="data-1.6.5" level="project" />
-=======
     <orderEntry type="library" exported="" name="bolts-android-1.2.0" level="project" />
     <orderEntry type="library" exported="" name="android-async-http-1.4.8" level="project" />
     <orderEntry type="library" exported="" name="data-1.6.5" level="project" />
     <orderEntry type="library" exported="" name="facebook-android-sdk-4.6.0" level="project" />
->>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
     <orderEntry type="library" exported="" name="support-v4-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.1" level="project" />
   </component>
