@@ -18,10 +18,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-<<<<<<< HEAD
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-=======
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.SharePhoto;
@@ -56,10 +54,7 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
 
-<<<<<<< HEAD
-=======
         shareButton = (ShareButton)findViewById (R.id.fb_share_button);
->>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 
         cameraButton = (Button)findViewById(R.id.camera_button);
         capturedImage = (ImageView)findViewById(R.id.captured_image);
@@ -190,10 +185,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-<<<<<<< HEAD
-
-
-=======
     @Override
     protected void onResume() {
         super.onResume();
@@ -209,5 +200,4 @@ public class MainActivity extends AppCompatActivity {
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
->>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 }
