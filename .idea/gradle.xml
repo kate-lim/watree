@@ -6,7 +6,17 @@
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="$APPLICATION_HOME_DIR$/gradle/gradle-2.4" />
+<<<<<<< HEAD
         <option name="gradleJvm" value="1.7" />
+=======
+        <option name="gradleJvm" value="1.8" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
+>>>>>>> c32c4e1eaa0e8c544dbcc86ceb98c93890878b81
       </GradleProjectSettings>
     </option>
   </component>
