@@ -80,11 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//    public void sharePhotoFB(View v){
-//
-//        shareButton.setShareContent(content);
-//    }
-
     private class MyLocationListener implements LocationListener {
 
         public void onLocationChanged(Location location) {
