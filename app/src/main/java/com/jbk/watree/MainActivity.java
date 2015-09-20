@@ -9,6 +9,7 @@ import android.graphics.PointF;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -62,7 +63,8 @@ public class MainActivity extends AppCompatActivity {
 //>>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 
         cameraButton = (Button)findViewById(R.id.camera_button);
-        capturedImage = (ImageView)findViewById(R.id.captured_image);
+       // capturedImage = (ImageView)findViewById(R.id.captured_image);
+        capturedImage = (ImageView)findViewById(R.id.newImage);
         cameraButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         bp = (Bitmap) data.getExtras().get("data");
         capturedImage.setImageBitmap(bp);
-
+        //(ImageView)(R.id.newImage) = (Image)capturedImage;
         SharePhoto photo = new SharePhoto.Builder()
                 .setBitmap(bp)
                 .build();
