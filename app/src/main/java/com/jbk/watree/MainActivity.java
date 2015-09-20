@@ -20,12 +20,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareButton;
->>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 
 public class MainActivity extends AppCompatActivity {
 
@@ -69,20 +70,31 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Create Database if it does not exist, it it already exist, do not create another one
-        SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);
+        SQLiteDatabase mydatabase = null;
+        try {
+            mydatabase = openOrCreateDatabase("WaTree", MODE_PRIVATE, null);
+        }
+        catch(Exception e){
 
-        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS WaTree(TreeID int,Latitude float, Longitude float, Comment  );");
-        mydatabase.execSQL("INSERT INTO WaTree VALUES(101,1.11, 2.22m 'This is a test');");
+        }
 
+        try{
+            mydatabase.execSQL("CREATE TABLE IF NOT EXISTS WaTreeTable(TreeID int,Latitude float, Longitude float, Comment varchar(50));");
+            mydatabase.execSQL("INSERT INTO WaTreeTable VALUES(101,1.11, 2.22m 'This is a test');");
 
+        }
+        catch(Exception r){
 
-        Cursor resultSet = mydatabase.rawQuery("Select * from WaTree",null);
-        resultSet.moveToFirst();
-        String treeID = resultSet.getString(1);
-        String latitude = resultSet.getString(2);
+        }
+        try{
+            Cursor resultSet = mydatabase.rawQuery("Select * from WaTreeTable",null);
+            resultSet.moveToFirst();
+            String treeID = resultSet.getString(1);
+            String latitude = resultSet.getString(2);
+        }
+        catch(Exception t){
 
-
-
+        }
     }
 
 
