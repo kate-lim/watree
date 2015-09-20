@@ -1,16 +1,22 @@
 package com.jbk.watree;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,7 +34,13 @@ import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareButton;
 
-public class MainActivity extends AppCompatActivity {
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class MainActivity extends Activity {
 
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
@@ -42,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     Bitmap bp;
     ShareButton shareButton;
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -50,7 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
         FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_main);
-
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
@@ -147,8 +157,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         bp = (Bitmap) data.getExtras().get("data");
-        capturedImage.setImageBitmap(bp);
 
+        capturedImage.setImageBitmap(bp);
         SharePhoto photo = new SharePhoto.Builder()
                 .setBitmap(bp)
                 .build();
@@ -158,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
 
         shareButton.setShareContent(content);
     }
+
 
     @Override
     protected void onDestroy() {
