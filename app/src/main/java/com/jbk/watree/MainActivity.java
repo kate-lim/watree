@@ -2,6 +2,8 @@ package com.jbk.watree;
 
 import android.content.Intent;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.location.Location;
@@ -16,11 +18,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+<<<<<<< HEAD
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+=======
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
 import com.facebook.share.widget.ShareButton;
+>>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +56,10 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
 
+<<<<<<< HEAD
+=======
         shareButton = (ShareButton)findViewById (R.id.fb_share_button);
+>>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 
         cameraButton = (Button)findViewById(R.id.camera_button);
         capturedImage = (ImageView)findViewById(R.id.captured_image);
@@ -62,7 +72,24 @@ public class MainActivity extends AppCompatActivity {
                 showCurrentLocation();
             }
         });
+
+        //Create Database if it does not exist, it it already exist, do not create another one
+        SQLiteDatabase mydatabase = openOrCreateDatabase("your database name",MODE_PRIVATE,null);
+
+        mydatabase.execSQL("CREATE TABLE IF NOT EXISTS WaTree(TreeID int,Latitude float, Longitude float, Comment  );");
+        mydatabase.execSQL("INSERT INTO WaTree VALUES(101,1.11, 2.22m 'This is a test');");
+
+
+
+        Cursor resultSet = mydatabase.rawQuery("Select * from WaTree",null);
+        resultSet.moveToFirst();
+        String treeID = resultSet.getString(1);
+        String latitude = resultSet.getString(2);
+
+
+
     }
+
 
     protected void showCurrentLocation() {
 
@@ -163,6 +190,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+<<<<<<< HEAD
+
+
+=======
     @Override
     protected void onResume() {
         super.onResume();
@@ -178,4 +209,5 @@ public class MainActivity extends AppCompatActivity {
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
+>>>>>>> 413c26b46525d4562d8fc7dc37380be0228e27bf
 }
